@@ -52,7 +52,7 @@ const Section = ({children, title}): Node => {
   );
 };
 
-const App: () => Node = () => {
+const SampleApp: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -109,4 +109,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default SampleApp;
