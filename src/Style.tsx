@@ -5,6 +5,7 @@ const Colors = {
     background: "white",
     border: "#eee",
     destructive: "red",
+    error: "red",
     label: "black",
 };
 
@@ -15,6 +16,7 @@ const Styles = StyleSheet.create({
     text: { fontSize: 17 },
     textInput: { borderColor: Colors.border, borderRadius: 8, borderWidth: 2, fontSize: 17, minHeight: 44, padding: 8 },
     textInputFocused: { borderColor: Colors.app, borderRadius: 8, borderWidth: 2, fontSize: 17, minHeight: 44, padding: 8 },
+    safeArea: { flex: 1, paddingTop: -64 }
 });
 
 export { Styles, Colors };

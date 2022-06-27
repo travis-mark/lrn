@@ -5,10 +5,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SampleApp from './sample';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
-import HelloWorld from './01HelloWorld';
-import CalculatorApp from './02Calculator';
 import { Colors, Styles } from './Style';
-import TodoApp from './03Todo';
+import HelloWorld from './01_Intro';
+import CalculatorApp from './02_React';
+import TodoApp from './03_Props';
+import DogsApp from './04_Image';
 
 // TODO: Clipboard
 
@@ -18,7 +19,8 @@ const Screens: { name: string; label: string }[] = [
   { name: "Sample", label: "React Native Sample" },
   { name: "HelloWorld", label: "01 - Hello World" },
   { name: "Calculator", label: "02 - Calculator" },
-  { name: "Todo", label: "03 - Todo" }
+  { name: "Todo", label: "03 - Todo" },
+  { name: "Image", label: "04 - Dogs!" }
 ]
 
 const ScreenListItem = ({ name, label, navigation }) => {
@@ -57,6 +59,7 @@ export default function App() {
           <Stack.Screen name="HelloWorld" component={HelloWorld} />
           <Stack.Screen name="Calculator" component={CalculatorApp} />
           <Stack.Screen name="Todo" component={TodoApp} />
+          <Stack.Screen name="Image" component={DogsApp} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

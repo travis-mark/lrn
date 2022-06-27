@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, FlatList, Image, Pressable, Button, Text } from 'react-native';
+import { View, TextInput, FlatList, Image, Pressable, Text } from 'react-native';
 import { Colors, Styles } from './Style';
 
 let todos = [

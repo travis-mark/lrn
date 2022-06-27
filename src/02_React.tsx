@@ -30,7 +30,7 @@ const CalculatorApp = () => {
         }
     };
     return (    
-        <SafeAreaView style={{ flex: 1, padding: 20 }}>
+        <SafeAreaView style={[ Styles.safeArea, { padding: 8 }]}>
             <View style={{ flexGrow: 1, backgroundColor: Colors.background, borderColor: Colors.label, borderWidth: 1, flex: 1, alignItems: "center", justifyContent: "center"}}>
                 <Text style={[Styles.text, { padding: 8, color: Colors.label }]}>{value}</Text>
             </View>
