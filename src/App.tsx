@@ -2,21 +2,23 @@ import React, { useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SampleApp from './sample';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import HelloWorld from './01HelloWorld';
 import CalculatorApp from './02Calculator';
 import { Styles } from './Style';
+import TodoApp from './03Todo';
 
 // TODO: Clipboard
 
 const Stack = createNativeStackNavigator();
 
-const Screens: { name: string; label: string; component: () => Node; }[] = [
-  { name: "Sample", label: "React Native Sample", component: SampleApp },
-  { name: "HelloWorld", label: "01 - Hello World", component: HelloWorld },
-  { name: "Calculator", label: "02 - Calculator", component: CalculatorApp }
+const Screens: { name: string; label: string }[] = [
+  { name: "Sample", label: "React Native Sample" },
+  { name: "HelloWorld", label: "01 - Hello World" },
+  { name: "Calculator", label: "02 - Calculator" },
+  { name: "Todo", label: "03 - Todo" }
 ]
 
 const ScreenListItem = ({ name, label, navigation }) => {
@@ -46,6 +48,7 @@ export default function App() {
           <Stack.Screen name="Sample" component={SampleApp} />
           <Stack.Screen name="HelloWorld" component={HelloWorld} />
           <Stack.Screen name="Calculator" component={CalculatorApp} />
+          <Stack.Screen name="Todo" component={TodoApp} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

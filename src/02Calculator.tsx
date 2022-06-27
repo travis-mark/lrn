@@ -30,10 +30,11 @@ const CalculatorApp = () => {
         }
     };
     return (    
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, padding: 20 }}>
             <View style={{ flexGrow: 1, backgroundColor: Colors.background, borderColor: Colors.label, borderWidth: 1, flex: 1, alignItems: "center", justifyContent: "center"}}>
                 <Text style={[Styles.text, { padding: 8, color: Colors.label }]}>{value}</Text>
             </View>
+            <View style={{padding: 8}}></View>
             <View style={{ flexGrow: 1 }}>
                 <CalculatorButton name="C" style={{ position: 'absolute', top: '00%', left: '00%', height: '20%', width: '25%' }} onPress={push} />
                 <CalculatorButton name="=" style={{ position: 'absolute', top: '00%', left: '25%', height: '20%', width: '25%' }} onPress={push} />

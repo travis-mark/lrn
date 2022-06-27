@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
 
-const HelloWorld = () => {
+const TodoApp = () => {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello, World!</Text>
+        <Text>TODO</Text>
       </View>
     )
 };
 
-export default HelloWorld;
+export default TodoApp;
