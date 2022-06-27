@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, FlatList, Image, Pressable } from 'react-native';
+import { View, TextInput, FlatList, Image, Pressable, Button, Text } from 'react-native';
 import { Colors, Styles } from './Style';
 
 let todos = [
@@ -12,11 +12,18 @@ let todos = [
 const MyTextInput = (props) => {
     const [isFocused, setIsFocused] = useState(false);
     const style = isFocused ? Styles.textInputFocused : Styles.textInput;
-    return <TextInput {...props} onBlur={() => setIsFocused(false)} onFocus={() => setIsFocused(true)} style={[style, props.style]}>{ props.children}</TextInput>
+    return <TextInput selectionColor={Colors.app} {...props} onBlur={() => setIsFocused(false)} onFocus={() => setIsFocused(true)} style={[style, props.style]}>{ props.children}</TextInput>
 }
 
 const TodoApp = () => {
     const [data, setData] = useState(todos);
+
+    const addText = () => {
+        const newObject = {}
+        const newArray = data.concat([newObject]);
+        setData(newArray);
+    };
+
 
     const setText = (index: number, text: string) => {
         const newObject = Object.assign({}, data[index], {text: text});
@@ -44,9 +51,21 @@ const TodoApp = () => {
         );
     };
 
+    const footer = () => {
+        return (
+            <Pressable onPress={() => addText()}>
+                <View style={[Styles.imageView, { minWidth: 44, minHeight: 44, backgroundColor: Colors.app, borderRadius: 8, margin: 8 }]}>
+                    <View style={[{ padding: 8 }]}>
+                        <Text style={[Styles.text, { color: 'white' }]}>Add Item</Text>
+                    </View>
+                </View>
+            </Pressable>
+        );
+    };
+
     return (
         <View style={Styles.tableView}>
-            <FlatList renderItem={renderItem} data={data}/>
+            <FlatList renderItem={renderItem} data={data} ListFooterComponent={footer} />
         </View>
     )
 };

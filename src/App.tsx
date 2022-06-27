@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SampleApp from './sample';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import HelloWorld from './01HelloWorld';
 import CalculatorApp from './02Calculator';
-import { Styles } from './Style';
+import { Colors, Styles } from './Style';
 import TodoApp from './03Todo';
 
 // TODO: Clipboard
@@ -39,10 +39,18 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: Colors.app
+  }
+};
+
 export default function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
+      <NavigationContainer theme={MyTheme}>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Toolbox' }} />
           <Stack.Screen name="Sample" component={SampleApp} />

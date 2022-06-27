@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const Colors = {
-    app: "lightblue",
+    app: "purple",
     background: "white",
     border: "#eee",
     destructive: "red",
@@ -14,7 +14,7 @@ const Styles = StyleSheet.create({
     imageView: { flex: 1, alignItems: 'center', justifyContent: 'center' }, 
     text: { fontSize: 17 },
     textInput: { borderColor: Colors.border, borderRadius: 8, borderWidth: 2, fontSize: 17, minHeight: 44, padding: 8 },
-    textInputFocused: { borderColor: Colors.app, borderRadius: 8, borderWidth: 4, fontSize: 17, minHeight: 44, padding: 8 },
+    textInputFocused: { borderColor: Colors.app, borderRadius: 8, borderWidth: 2, fontSize: 17, minHeight: 44, padding: 8 },
 });
 
 export { Styles, Colors };
