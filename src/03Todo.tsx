@@ -1,11 +1,53 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, FlatList, Image, Pressable } from 'react-native';
+import { Colors, Styles } from './Style';
+
+let todos = [
+    { text: "Item 1" },
+    { text: "Item 2" },
+    { text: "Item 3" },
+    { }
+];
+
+const MyTextInput = (props) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const style = isFocused ? Styles.textInputFocused : Styles.textInput;
+    return <TextInput {...props} onBlur={() => setIsFocused(false)} onFocus={() => setIsFocused(true)} style={[style, props.style]}>{ props.children}</TextInput>
+}
 
 const TodoApp = () => {
+    const [data, setData] = useState(todos);
+
+    const setText = (index: number, text: string) => {
+        const newObject = Object.assign({}, data[index], {text: text});
+        const newArray = data.slice(0, index).concat([newObject]).concat(data.slice(index+1, data.length));
+        setData(newArray);
+    };
+
+    const delText = (index: number) => {
+        const newArray = data.slice(0, index).concat(data.slice(index+1, data.length));
+        setData(newArray);
+    }
+
+    const renderItem = ({ item, index }) => {
+        return (
+            <View style={[Styles.tableViewCell, {flex: 1, flexDirection: 'row', paddingHorizontal: 8}]}>
+                <MyTextInput onChangeText={newText => setText(index, newText)} placeholder='Add Todo' style={{flexGrow: 1, margin: 8}}>{ item.text }</MyTextInput>
+                <Pressable onPress={() => delText(index)}>
+                    <View style={[ Styles.imageView, { minWidth: 44, minHeight: 44, backgroundColor: Colors.destructive, borderRadius: 8, margin: 8 }]}>
+                        <View style={[{ padding: 8 }]}>
+                            <Image source={ require('./trash.png') } />
+                        </View>
+                    </View>
+                </Pressable>
+            </View>
+        );
+    };
+
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>TODO</Text>
-      </View>
+        <View style={Styles.tableView}>
+            <FlatList renderItem={renderItem} data={data}/>
+        </View>
     )
 };
 

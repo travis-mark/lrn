@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors, Styles } from './Style';
 
 const CalculatorButton = ({name, style, onPress}) => {
