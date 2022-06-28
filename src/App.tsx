@@ -10,6 +10,7 @@ import HelloWorld from './01_Intro';
 import CalculatorApp from './02_React';
 import TodoApp from './03_Props';
 import DogsApp from './04_Image';
+import AppearancePicker from './05_Light';
 
 // TODO: Clipboard
 
@@ -20,7 +21,8 @@ const Screens: { name: string; label: string }[] = [
   { name: "HelloWorld", label: "01 - Hello World" },
   { name: "Calculator", label: "02 - Calculator" },
   { name: "Todo", label: "03 - Todo" },
-  { name: "Image", label: "04 - Dogs!" }
+  { name: "Image", label: "04 - Dogs!" },
+  { name: "Light", label: "05 - Appearance Picker"}
 ]
 
 const ScreenListItem = ({ name, label, navigation }) => {
@@ -49,6 +51,8 @@ const MyTheme = {
   }
 };
 
+
+
 export default function App() {
   return (
     <SafeAreaProvider>
@@ -60,6 +64,7 @@ export default function App() {
           <Stack.Screen name="Calculator" component={CalculatorApp} />
           <Stack.Screen name="Todo" component={TodoApp} />
           <Stack.Screen name="Image" component={DogsApp} />
+          <Stack.Screen name="Light" component={AppearancePicker} options={{ title: "Appearance Picker" }} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
