@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Appearance } from 'react-native';
 
-const light = {
+interface Palette { app: string; background: string; border: string; destructive: string; error: string; label: string; }
+
+const light: Palette = {
     app: "rgb(88,86,214)",
     background: "white",
     border: "#eee",
@@ -10,7 +12,7 @@ const light = {
     label: "black",
 };
 
-const dark = {
+const dark: Palette = {
     app: "rgb(88,86,214)",
     background: "black",
     border: "#eee",
@@ -19,20 +21,17 @@ const dark = {
     label: "white",
 };
 
-
-
-function useColor(colorName: string) {
-    const initialColor = Appearance.getColorScheme() === "dark" ? dark[colorName] : light[colorName];
-    const [color, setColor] = useState(initialColor);
-    const callback = ({colorScheme}: any) => {
-        setColor(colorScheme === "dark" ? dark[colorName] : light[colorName]);
-    }
-    useEffect(() => {
-        const appearanceSubscription = Appearance.addChangeListener(callback);
-        return () => appearanceSubscription.remove();
-    });
-    return color;
-}
+const styles = (colors: Palette) => {
+    return {
+        tableView: { backgroundColor: colors.background, flex: 1, paddingTop: 0 },
+        tableViewCell: { paddingHorizontal: 20, justifyContent: 'center', minHeight: 44, borderBottomColor: colors.border, borderBottomWidth: 1 },
+        imageView: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+        text: { fontSize: 17, color: colors.label },
+        textInput: { borderColor: colors.border, borderRadius: 8, borderWidth: 2, fontSize: 17, minHeight: 44, padding: 8 },
+        textInputFocused: { borderColor: colors.app, borderRadius: 8, borderWidth: 2, fontSize: 17, minHeight: 44, padding: 8 },
+        safeArea: { flex: 1, paddingTop: -64, backgroundColor: colors.background }
+    };
+};
 
 function useColors() {
     const initialColors = Appearance.getColorScheme() === "dark" ? dark : light;
@@ -47,4 +46,18 @@ function useColors() {
     return colors;
 }
 
-export { useColor, useColors };
+function useStyles() {
+    const initialStyle = styles(Appearance.getColorScheme() === "dark" ? dark : light);
+    const [style, setStyle] = useState(initialStyle);
+    const callback = ({colorScheme}: any) => {
+        const style = styles(colorScheme === "dark" ? dark : light);
+        setStyle(style);
+    }
+    useEffect(() => {
+        const appearanceSubscription = Appearance.addChangeListener(callback);
+        return () => appearanceSubscription.remove();
+    });
+    return style;
+}
+
+export { useColors, useStyles };
