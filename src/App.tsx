@@ -11,6 +11,7 @@ import CalculatorApp from './02_React';
 import TodoApp from './03_Props';
 import DogsApp from './04_Image';
 import AppearancePicker from './05_Light';
+import ContactEditor from './06_Binds';
 
 // TODO: Clipboard
 
@@ -22,7 +23,8 @@ const Screens: { name: string; label: string }[] = [
   { name: "Calculator", label: "02 - Calculator" },
   { name: "Todo", label: "03 - Todo" },
   { name: "Image", label: "04 - Dogs!" },
-  { name: "Light", label: "05 - Appearance Picker"}
+  { name: "Light", label: "05 - Appearance Picker"},
+  { name: "Binds", label: "06 - Contact Editor"}
 ]
 
 const ScreenListItem = ({ name, label, navigation }) => {
@@ -65,6 +67,7 @@ export default function App() {
           <Stack.Screen name="Todo" component={TodoApp} />
           <Stack.Screen name="Image" component={DogsApp} />
           <Stack.Screen name="Light" component={AppearancePicker} options={{ title: "Appearance Picker" }} />
+          <Stack.Screen name="Binds" component={ContactEditor} options={{ title: "Contact Editor" }} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

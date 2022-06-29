@@ -3,8 +3,7 @@ import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useStyles } from './00_Share';
 
-// Basiclly just matches 01_Intro, but handles light / dark mode
-const AppearancePicker = () => {
+const ContactEditor = () => {
     const Styles = useStyles();
     
     return (<SafeAreaView style={Styles.safeArea}>
@@ -14,4 +13,4 @@ const AppearancePicker = () => {
     </SafeAreaView>);
 };
 
-export default AppearancePicker;
+export default ContactEditor;
