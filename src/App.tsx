@@ -12,6 +12,7 @@ import TodoApp from './03_Props';
 import DogsApp from './04_Image';
 import AppearancePicker from './05_Light';
 import ContactEditor from './06_Binds';
+import Timer from './07_Timer';
 
 // TODO: Clipboard
 
@@ -24,7 +25,8 @@ const Screens: { name: string; label: string }[] = [
   { name: "Todo", label: "03 - Todo" },
   { name: "Image", label: "04 - Dogs!" },
   { name: "Light", label: "05 - Appearance Picker"},
-  { name: "Binds", label: "06 - Contact Editor"}
+  { name: "Binds", label: "06 - Contact Editor"},
+  { name: "Timer", label: "07 - Stopwatch"},
 ]
 
 const ScreenListItem = ({ name, label, navigation }) => {
@@ -68,6 +70,7 @@ export default function App() {
           <Stack.Screen name="Image" component={DogsApp} />
           <Stack.Screen name="Light" component={AppearancePicker} options={{ title: "Appearance Picker" }} />
           <Stack.Screen name="Binds" component={ContactEditor} options={{ title: "Contact Editor" }} />
+          <Stack.Screen name="Timer" component={Timer} options={{ title: "Stopwatch" }} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -29,6 +29,7 @@ const styles = (colors: Palette) => {
         tableViewCell: { paddingHorizontal: 20, justifyContent: 'center', minHeight: minTappableSize, borderBottomColor: colors.border, borderBottomWidth: 1 },
         imageView: { flex: 1, alignItems: 'center', justifyContent: 'center' },
         text: { fontSize: 17, color: colors.label },
+        textLarge: { fontSize: 34, color: colors.label },
         textInput: { borderColor: colors.border, borderRadius: 8, borderWidth: 2, color: colors.label, fontSize: 17, minHeight: minTappableSize, padding: 8 },
         textInputFocused: { borderColor: colors.app, borderRadius: 8, borderWidth: 2, color: colors.label, fontSize: 17, minHeight: minTappableSize, padding: 8 },
         safeArea: { flex: 1, paddingTop: -64, backgroundColor: colors.background }
