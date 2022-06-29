@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, FlatList, Image, Pressable, Text } from 'react-native';
+import { View, FlatList, Image, Pressable, Text } from 'react-native';
+import { MyTextInput } from './00_Share';
 import { Colors, Styles } from './Style';
 
 let todos = [
@@ -8,12 +9,6 @@ let todos = [
     { text: "Item 3" },
     { }
 ];
-
-const MyTextInput = (props) => {
-    const [isFocused, setIsFocused] = useState(false);
-    const style = isFocused ? Styles.textInputFocused : Styles.textInput;
-    return <TextInput selectionColor={Colors.app} {...props} onBlur={() => setIsFocused(false)} onFocus={() => setIsFocused(true)} style={[style, props.style]}>{ props.children}</TextInput>
-}
 
 const TodoApp = () => {
     const [data, setData] = useState(todos);
