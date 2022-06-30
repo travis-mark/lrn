@@ -14,6 +14,7 @@ import AppearancePicker from './05_Light';
 import ContactEditor from './06_Binds';
 import Timer from './07_Timer';
 import SQLiteViewer from './08_Store';
+import BounceBall from './09_Moved';
 
 // TODO: Clipboard
 
@@ -29,6 +30,7 @@ const Screens: { name: string; label: string }[] = [
   { name: "Binds", label: "06 - Contact Editor"},
   { name: "Timer", label: "07 - Stopwatch"},
   { name: "Store", label: "08 - SQLite"},
+  { name: "Moved", label: "09 - Ball Bouncer"},
 ]
 
 const ScreenListItem = ({ name, label, navigation }) => {
@@ -74,6 +76,7 @@ export default function App() {
           <Stack.Screen name="Binds" component={ContactEditor} options={{ title: "Contact Editor" }} />
           <Stack.Screen name="Timer" component={Timer} options={{ title: "Stopwatch" }} />
           <Stack.Screen name="Store" component={SQLiteViewer} options={{ title: "SQLite Status" }} />
+          <Stack.Screen name="Moved" component={BounceBall} options={{ title: "Ball Bouncer" }} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

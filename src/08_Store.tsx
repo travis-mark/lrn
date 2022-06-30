@@ -31,7 +31,7 @@ export const getDBVersion = async (db: SQLiteDatabase): Promise<number> => {
 
 // Do I need a transaction here?
 export const setDBVersion = async (db: SQLiteDatabase, version: number): Promise<number> => {
-    await db.executeSql(`INSERT INTO Version VALUES (${version});`);
+    await db.executeSql(`DELETE FROM Version WHERE 1=1; INSERT INTO Version VALUES (${version});`);
     debugger;
     return version;
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Appearance, TextInput, View, Image } from 'react-native';
+import { Appearance, TextInput, View, Image, Pressable } from 'react-native';
 
-interface Palette { app: string; background: string; border: string; destructive: string; error: string; label: string; }
+interface Palette { app: string; background: string; border: string; destructive: string; error: string; gray: string; label: string; }
 
 const light: Palette = {
     app: "rgb(88,86,214)",
@@ -9,6 +9,7 @@ const light: Palette = {
     border: "#eee",
     destructive: "red",
     error: "red",
+    gray: "rgb(108, 108, 112)",
     label: "black",
 };
 
@@ -18,6 +19,7 @@ const dark: Palette = {
     border: "#eee",
     destructive: "red",
     error: "red",
+    gray: "rgb(174, 174, 178)",
     label: "white",
 };
 
@@ -108,4 +110,15 @@ const MyIcon = ({name}) => {
     </View>);
 }
 
-export { useColors, useStyles, MyTextInput, minTappableSize, MyIcon };
+const MyButton = (props) => {
+    const Styles = useStyles();
+    const Colors = useColors();
+
+    return (<Pressable onPress={props.onPress} style={[{ minWidth: 44, minHeight: 44, backgroundColor: Colors.app, borderRadius: 8, margin: 8 }, props.style]}>
+        <View style={[{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 8 }]}>
+            {props.children}
+        </View>
+    </Pressable>);
+}
+
+export { useColors, useStyles, MyTextInput, MyIcon, MyButton };

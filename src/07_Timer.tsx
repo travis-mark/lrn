@@ -1,18 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Pressable, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useColors, useStyles } from './00_Share';
-
-const MyButton = (props) => {
-    const Styles = useStyles();
-    const Colors = useColors();
-
-    return (<Pressable onPress={props.onPress} style={[{ minWidth: 44, minHeight: 44, backgroundColor: Colors.app, borderRadius: 8, margin: 8 }, props.style]}>
-        <View style={[{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 8 }]}>
-            {props.children}
-        </View>
-    </Pressable>);
-}
+import { MyButton, useColors, useStyles } from './00_Share';
 
 const Timer = () => {
     const Styles = useStyles();
