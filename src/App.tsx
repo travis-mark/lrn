@@ -15,6 +15,7 @@ import ContactEditor from './06_Binds';
 import Timer from './07_Timer';
 import SQLiteViewer from './08_Store';
 import BounceBall from './09_Moved';
+import { TodoApp2 } from './10_Trans';
 
 // TODO: Clipboard
 
@@ -31,6 +32,7 @@ const Screens: { name: string; label: string }[] = [
   { name: "Timer", label: "07 - Stopwatch"},
   { name: "Store", label: "08 - SQLite"},
   { name: "Moved", label: "09 - Ball Bouncer"},
+  { name: "Trans", label: "10 - Todo (with fade on complete)"},
 ]
 
 const ScreenListItem = ({ name, label, navigation }) => {
@@ -77,6 +79,7 @@ export default function App() {
           <Stack.Screen name="Timer" component={Timer} options={{ title: "Stopwatch" }} />
           <Stack.Screen name="Store" component={SQLiteViewer} options={{ title: "SQLite Status" }} />
           <Stack.Screen name="Moved" component={BounceBall} options={{ title: "Ball Bouncer" }} />
+          <Stack.Screen name="Trans" component={TodoApp2} options={{ title: "Todo" }} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
